@@ -80,11 +80,31 @@ if (isset($_POST['Login'])) {
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
-
+    $template_path = 'LoginConf.html';
+    $email_body = file_get_contents($template_path);
+    $mail = new PHPMailer(true);
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
         if ($password === $user['password']) { 
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com'; 
+            $mail->SMTPAuth = true; 
+            $mail->Username = 'msms.1424h@gmail.com'; 
+            $mail->Password = 'puiccdtuzgnjyusv';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port = 465; 
+
+           
+            $mail->setFrom('msms.1424h@gmail.com', 'JOYFUL PAWS'); 
+            $mail->addAddress($email); 
+            $mail->Subject = 'Login Confirmation';
+
+
+            $mail->isHTML(true); 
+            $mail->Body = $email_body;
+            
+            $mail->send(); 
             header('Location: index.php'); 
             exit();
         } else {
