@@ -63,7 +63,7 @@ if (isset($_POST['signup'])) {
                 echo "Error: could not send email. Mailer Error: {$mail->ErrorInfo}";
             }
 
-            header('Location: about.php');
+            header('Location: index.php');
             exit();
         } else {
             echo "Error: " . $insert_stmt->error; 
