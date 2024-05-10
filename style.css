@@ -119,7 +119,7 @@ CSS STRUCTURE:
 :root {
   --body-font: 'Chilanka', cursive;
   --heading-font: 'Chilanka', cursive;
-  --secondary-font: 'Montserrat', sans-serif;
+  --secondary-font: 'Montserrat', smonospace;
 }
 
 
@@ -674,3 +674,4 @@ Single Product section style start
   color: var(--light-color);
   background-color: var(--accent-color);
 }
+
