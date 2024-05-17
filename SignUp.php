@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Sign Up Form</title>
+<title>Joyful Paws |Sign Up Form</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
   <meta name="description" content="">
 </head>
 <head>
+<link rel="icon" href="images/Paws.png">
 <link rel="stylesheet" href="css/swiper.css" />
 <link rel="stylesheet" href="css/bootstrap.css" />
 
@@ -502,54 +503,45 @@ label.valid {
                             <label for="middle-name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <input type="text" id="middle-name"  placeholder="Middle Name"  name ='middleName' required>
                         </div>
-                        <div class="input-group">
+                         <div class="input-group">
                             <label for="last-name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <input type="text" id="last-name"  placeholder="Last Name"  name ='lastName' required>
                         </div>
                     </div>
-<br>
+                    <br>
                     <!-- Second row: Email -->
                     <div class="form-group">
                         <label for="email"><i class="zmdi zmdi-email"></i></label>
                         <input type="email" id="email"  placeholder="Your Email"  name ='email' required>
                     </div>
-<br>
+                     <br>
                     <!-- Third row: Gender and Age -->
                     <div class="form-group row">
-    <div class="input-group" style="margin-right: 60px;"> 
-        <label for="age"><i class="zmdi zmdi-calendar"></i></label>
-        <input type="number" name="age" id="age" placeholder="Your Age" min="0"  required >
-     
-    </div>
+                   <div class="input-group" style="margin-right: 60px;"> 
+                   <label for="age"><i class="zmdi zmdi-calendar"></i></label>
+                   <input type="number" name="age" id="age" placeholder="Your Age" min="0"  required >
+                   </div>
 
-    <div class="input-group">
-        <label for="gender"><i class="zmdi zmdi-male-female"></i></label>
-        <select id="gender"  name= "gender" required>
-            <option value="" disabled selected >Select Gender</option>
-            <option value="male" >Male</option>
-            <option value="female">Female</option>
-        </select>
-    </div>
-</div>
-
-                    <br>
-                    <br>
-                    <!-- Fourth row: Password -->
+                 <div class="input-group">
+                  <label for="gender"><i class="zmdi zmdi-male-female"></i></label>
+                   <select id="gender"  name= "gender" required>
+                       <option value="" disabled selected >Select Gender</option>
+                      <option value="male" >Male</option>
+                      <option value="female">Female</option>
+                </select>
+            </div>
+          </div> <br><br>
                     <div class="form-group">
                         <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                         <input type="password" name="password" id="pass" placeholder="Password" required>
                     </div>
                     <br>
-                                <!-- Fifth row: Confirm Password -->
-                                <div class="form-group">
-                        <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                        <input type="password" name="re_pass" id="re_pass" placeholder="Confirm Password" required>
+                           
+                    <div class="form-group">
+                    <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                    <input type="password" name="re_pass" id="re_pass" placeholder="Confirm Password" required>
                     </div>
                     
-                    <br>
-                    <!-- Terms and Register Button -->
-                    
-
                     <div class="form-group form-button">
                        <input type="submit" name="signup" id="signup" class="form-submit" value="Sign Up"/>
                     </div>

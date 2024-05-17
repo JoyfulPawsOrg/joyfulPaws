@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +32,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
   <style>
     /* a{
@@ -209,6 +216,18 @@
 
 <body>
 
+    <?php
+    if (isset($_SESSION['message'])) {
+        $message = $_SESSION['message'];
+        $message_type = $_SESSION['message_type'];
+        echo "<div class='alert alert-$message_type' role='alert'>$message</div>";
+        unset($_SESSION['message']);
+        unset($_SESSION['message_type']);
+    }
+    ?>
+
+
+
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
       <symbol xmlns="http://www.w3.org/2000/svg" id="link" viewBox="0 0 24 24">
@@ -379,7 +398,7 @@
 
     </div>
   </header>
-
+ 
   <section id="banner" class="py-3" style="background: #F9F3EC;">
     <div class="container">
       <div class="hero-content py-5 my-3">
@@ -486,50 +505,49 @@
 
   
   <section id="register" style="background: url('images/background-img.png') no-repeat;">
-    <div class="container ">
-      <div class="row my-5 py-5">
-        <div class="offset-md-3 col-md-6 my-5 ">
-          <h2 class="display-3 fw-normal text-center">Share & Rate<br><span class="text-primary display-6">Your Feedback Matters! Rate Us and Share Your Experience!</span></h2>
-          <form action="insertExp.php" method="post">
-            <div class="form-input d-flex mb-3">
-              <input type="text" name="firstName" required="required" placeholder="First Name.." class="form-control ps-3 me-3">
-              <input type="text" name="middleName" required="required" placeholder="Middle Name.." class="form-control ps-3 me-3">
-              <input type="text" name="lastName" required="required" placeholder="Last Name.." class="form-control ps-3">
-            </div>
-            <div class="mb-3">
-              <!-- <input type="number" name="ratingNumber" min="1" max="5" id="typeNumber" required="required" placeholder="Select Rating Number (1-5)" class="form-control" /> -->
-              <div class="rating d-flex form-control  mb-3">
-                <div class="text-White-60 my-0">
-                  <h6 >Overall Satisfaction</h6>
+        <div class="container">
+            <div class="row my-5 py-5">
+                <div class="offset-md-3 col-md-6 my-5">
+                    <h2 class="display-3 fw-normal text-center">Share & Rate<br><span class="text-primary display-6">Your Feedback Matters! Rate Us and Share Your Experience!</span></h2>
+                    <form action="insertExp.php" method="post">
+                        <div class="form-input d-flex mb-3">
+                            <input type="text" name="firstName" required="required" placeholder="First Name.." class="form-control ps-3 me-3">
+                            <input type="text" name="middleName" required="required" placeholder="Middle Name.." class="form-control ps-3 me-3">
+                            <input type="text" name="lastName" required="required" placeholder="Last Name.." class="form-control ps-3">
+                        </div>
+                        <div class="mb-3">
+                            <div class="rating d-flex form-control mb-3">
+                                <div class="text-White-60 my-0">
+                                    <h6>Overall Satisfaction</h6>
+                                </div>
+                                <input type="radio" id="star5" name="rating" value="5" class="star-5" />
+                                <label class="star" for="star5"><span class="fa fa-star"></span></label>
+
+                                <input type="radio" id="star4" name="rating" value="4" class="star-4" />
+                                <label class="star" for="star4"><span class="fa fa-star"></span></label>
+
+                                <input type="radio" id="star3" name="rating" value="3" class="star-3" />
+                                <label class="star" for="star3"><span class="fa fa-star"></span></label>
+
+                                <input type="radio" id="star2" name="rating" value="2" class="star-2" />
+                                <label class="star" for="star2"><span class="fa fa-star"></span></label>
+
+                                <input type="radio" id="star1" name="rating" value="1" class="star-1" />
+                                <label class="star" for="star1"><span class="fa fa-star"></span></label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="feedback" required="required" placeholder="Write Your Feedback Here.." class="form-control ps-3 me-3">
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" name="submitCustomerExpButton" class="btn btn-dark btn-lg rounded-1">Submit</button>
+                        </div>
+                    </form>
                 </div>
-                <input type="radio" id="star5" name="rating" value="5" class="star-5" />
-                <label class="star" for="star5"><span class="fa fa-star"></span></label>
-
-                <input type="radio" id="star4" name="rating" value="4" class="star-4" />
-                <label class="star" for="star4"><span class="fa fa-star"></span></label>
-
-                <input type="radio" id="star3" name="rating" value="3" class="star-3" />
-                <label class="star" for="star3"><span class="fa fa-star"></span></label>
-
-                <input type="radio" id="star2" name="rating" value="2" class="star-2" />
-                <label class="star" for="star2"><span class="fa fa-star"></span></label>
-
-                <input type="radio" id="star1" name="rating" value="1" class="star-1" />
-                <label class="star" for="star1"><span class="fa fa-star"></span></label>
-              </div>
             </div>
-            <div class="mb-3">
-              <input type="text" name="feedback" required="required" placeholder="Write Your Feedback Here.." class="form-control ps-3 me-3">
-            </div>
-
-            <div class="d-grid gap-2">
-              <button type="submit" name="submitCustomerExpButton" class="btn btn-dark btn-lg rounded-1">Submit</button>
-            </div>
-          </form>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
   
 

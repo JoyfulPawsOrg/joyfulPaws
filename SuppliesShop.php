@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Shop</title>
+<title>Joyful Paws | Supplies Shop</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,89 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   <meta name="description" content="">
-</head>
+  <style>
+    .modal-header {
+    position: relative;
+}
 
+.close {
+    position: absolute;
+    top: -20px;
+    right: 0;
+}
+.modal-header .close {
+    background-color: transparent;
+    border: none;
+    font-size: 40px;
+    font-family:monospace;
+}
+.product {
+    position: relative;
+    display: inline-block;
+}
+
+.product-image {
+    transition: filter 0.3s ease;
+}
+
+.product-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    text-align: center;
+}
+
+.product:hover .product-image {
+    filter: brightness(80%);
+}
+
+.product:hover .product-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.product-title, .product-description, .product-price {
+    margin-bottom: 5px;
+}
+
+.headerShop {
+    width: 100vw; 
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.headerShop img {
+    width: 100%; 
+    height: auto; 
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px; 
+}
+
+
+.btn-group a:hover {
+    color: #ffff99; 
+}
+
+
+    </style>
+</head>
+<link rel="icon" href="images/Paws.png">
 <link rel="stylesheet" href="css/swiper.css" />
 <link rel="stylesheet" href="css/bootstrap.css" />
 
@@ -169,39 +250,12 @@
 
         <div class="col-sm-4 col-lg-3 text-center text-sm-start">
           <div class="main-logo">
-            <a href="index.html">
-              <img src="images/logo.png" alt="logo" class="img-fluid">
+            <a href="index.php">
+              <img src="images/joyfulPawsLogo.png" alt="logo" class="img-fluid">
             </a>
           </div>
         </div>
 
-        <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
-          <div class="search-bar border rounded-2 px-3 border-dark-subtle">
-            <form id="search-form" class="text-center d-flex align-items-center" action="" method="">
-              <input type="text" class="form-control border-0 bg-transparent"
-                placeholder="Search for more than 10,000 products" />
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path fill="currentColor"
-                  d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
-              </svg>
-            </form>
-          </div>
-        </div>
-
-        <div
-          class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
-          <div class="support-box text-end d-none d-xl-block">
-            <span class="fs-6 secondary-font text-muted">Phone</span>
-            <h5 class="mb-0">+980-34984089</h5>
-          </div>
-          <div class="support-box text-end d-none d-xl-block">
-            <span class="fs-6 secondary-font text-muted">Email</span>
-            <h5 class="mb-0">waggy@gmail.com</h5>
-          </div>
-
-
-
-        </div>
       </div>
     </div>
 
@@ -212,44 +266,98 @@
     <div class="container">
       <nav class="main-menu d-flex navbar navbar-expand-lg ">
 
-        <div class="d-flex d-lg-none align-items-end mt-3">
-          <ul class="d-flex justify-content-end list-unstyled m-0">
-            <li>
-              <a href="account.html" class="mx-3">
-                <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
-              </a>
-            </li>
-            <li>
-              <a href="wishlist.html" class="mx-3">
-                <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
-              </a>
-            </li>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 
-            <li>
-              <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                aria-controls="offcanvasCart">
-                <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
-                <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
-                  03
-                </span>
-              </a>
-            </li>
+          <div class="offcanvas-header justify-content-center">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
 
-            <li>
-              <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch"
-                aria-controls="offcanvasSearch">
-                <iconify-icon icon="tabler:search" class="fs-4"></iconify-icon>
-                </span>
-              </a>
-            </li>
-          </ul>
+          <div class="offcanvas-body justify-content-between">
+            
 
+            <ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
+              <li class="nav-item">
+                <a href="index.php" class="nav-link active">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="index.php#register" class="nav-link">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown"
+                  aria-expanded="false">Services</a>
+                <ul class="dropdown-menu" aria-labelledby="pages">
+                  <li><a href="#" class="dropdown-item">Pet spa</a></li>
+                  <li><a href="adoptionform.php" class="dropdown-item">Adoption</a></li>
+                  <li><a href="medical-services.php" class="dropdown-item">Medical services</a></li>
+                  <li><a href="Emergency.php" class="dropdown-item">Emergency care</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="SuppliesShop.php" class="nav-link">Supplies shop</a>
+              </li>
+              <li class="nav-item">
+                <a href="customerExperiences.php" class="nav-link">Customer experiences</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link fw-bold text-dark">JOIN US</a>
+              </li>
+            </ul>
+
+            <div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
+              <div class="social-links">
+                <ul class="d-flex list-unstyled gap-2">
+                  <li class="social">
+                    <a href="#">
+                      <iconify-icon class="social-icon" icon="ri:facebook-fill"></iconify-icon>
+                    </a>
+                  </li>
+                  <li class="social">
+                    <a href="#">
+                      <iconify-icon class="social-icon" icon="ri:twitter-fill"></iconify-icon>
+                    </a>
+                  </li>
+                  <li class="social">
+                    <a href="#">
+                      <iconify-icon class="social-icon" icon="ri:pinterest-fill"></iconify-icon>
+                    </a>
+                  </li>
+                  <li class="social">
+                    <a href="#">
+                      <iconify-icon class="social-icon" icon="ri:instagram-fill"></iconify-icon>
+                    </a>
+                  </li>
+                  <li class="social">
+                    <a href="#">
+                      <iconify-icon class="social-icon" icon="ri:youtube-fill"></iconify-icon>
+                    </a>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      </nav>
+
+
+
+    </div>
+    <!-- --------------------------------------------------------------------------------------------------------------------->
+    <br>
+    <div class="headerShop">
+    <img src="images/shop.png" >
+</div>
+  </header>
+    <br><br>
+<!-- --------------------------------------------------------------------------------------------------------------------->
+<!-- --------------------------------------------------------------------------------------------------------------------->
+<main>
+
+<div class="container">
+      <nav class="main-menu d-flex navbar navbar-expand-lg ">
+
+        
 
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 
@@ -258,624 +366,481 @@
           </div>
 
           <div class="offcanvas-body justify-content-between">
-            <select class="filter-categories border-0 mb-0 me-5">
-              <option>Shop by Category</option>
-              <option>Clothes</option>
-              <option>Food</option>
-              <option>Food</option>
-              <option>Toy</option>
-            </select>
+          <div class="btn-group" role="group" aria-label="Filter by Category">
+    <a href="#" class="btn btn-secondary" data-category="all">All Categories</a>
+    <a href="#" class="btn btn-secondary" data-category="food">Food</a>
+    <a href="#" class="btn btn-secondary" data-category="clothes">Clothes</a>
+    <a href="#" class="btn btn-secondary" data-category="toy">Toys</a>
+</div>
 
-            <ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
-              <li class="nav-item">
-                <a href="index.html" class="nav-link">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown"
-                  aria-expanded="false">Pages</a>
-                <ul class="dropdown-menu" aria-labelledby="pages">
-                  <li><a href="about.html" class="dropdown-item">About Us<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="shop.html" class="dropdown-item">Shop<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="single-product.html" class="dropdown-item">Single Product<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="cart.html" class="dropdown-item">Cart<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="wishlist.html" class="dropdown-item">Wishlist<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="checkout.html" class="dropdown-item">Checkout<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="blog.html" class="dropdown-item">Blog<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="single-post.html" class="dropdown-item">Single Post<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="contact.html" class="dropdown-item">Contact<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="faqs.html" class="dropdown-item">FAQs<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="account.html" class="dropdown-item">Account<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="thank-you.html" class="dropdown-item">Thankyou<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="error.html" class="dropdown-item">Error 404<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                  <li><a href="styles.html" class="dropdown-item">Styles<span
-                        class="badge bg-success text-dark ms-2">PRO</span></a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="shop.html" class="nav-link">Shop</a>
-              </li>
-              <li class="nav-item">
-                <a href="blog.html" class="nav-link">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a href="contact.html" class="nav-link">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Others</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://templatesjungle.gumroad.com/l/waggy-pet-shop-ecommerce-html-website-template" class="nav-link fw-bold text-dark" target="_blank">GET PRO</a>
-              </li>
-            </ul>
 
+          
             <div class="d-none d-lg-flex align-items-end">
-              <ul class="d-flex justify-content-end list-unstyled m-0">
-                <li>
-                  <a href="account.html" class="mx-3">
-                    <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
-                  </a>
-                </li>
-                <li>
-                  <a href="wishlist.html" class="mx-3">
-                    <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
-                  </a>
-                </li>
+            
 
-                <li class="">
-                  <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                    aria-controls="offcanvasCart">
-                    <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
-                    <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
-                      03
-                    </span>
-                  </a>
-                </li>
-              </ul>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+        <li class="">
+            <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" onclick="showCartItems()">
+                <iconify-icon icon="mdi:cart" class="fs-1 position-relative"></iconify-icon>
+                <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2" id="cart-badge">0</span>
+            </a>
+        </li>
+    </ul>
+</div> </ul>  </div>  </div> </div> </nav> </div>
 
+    <!-- Content -->
+   
+
+<!-- HTML Code -->
+<div class="container mt-4">
+    <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-4" data-category="food">
+    <div class="product-card">
+        <div class="card mb-4 product">
+            <div class="product-overlay">
+                <h5 class="product-title">Applaws 100% Natural Complete 7.5KG Bag Grain Free Cat Food Chicken And SalmonOpens</h5>
+                <p class="product-description">- All-natural food made from chicken, extra salmon and natural extracts for large cats.<br>- Grain-free<br>- Contains natural prebiotics and probiotics which may encourage the presence of bacteria</p>
+                <p class="product-price"><strong>price : 25.00 SAR</strong></p>
             </div>
+            <img src="images/Product1.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Applaws 100% Natural Complete 7.5KG Bag Grain Free Cat Food Chicken </h5>
+            <p class="card-text">25.00 SAR</p>
+            <button class="btn btn-primary btn-block" onclick="addToCart('Applaws 100% Natural Complete 7.5KG Bag Grain Free Cat Food Chicken ', 25)">Add to Cart</button>
+        </div>
+    </div>
+</div>
 
-          </div>
+<!-- Product 2 -->
+<div class="col-md-4" data-category="food">
+    <div class="product-card">
+        <div class="card mb-4 product">
+            <div class="product-overlay">
+                <h5 class="product-title">Schesir Tuna and Chicken in Jelly Wet Food for Adult Cats, 85 grams</h5>
+                <p class="product-description">- All ingredients are selected 100% natural.<br>- The ingredients are steamed and prepared by hand<br>- No preservatives or added colors<br>- Only sustainably caught tuna</p>
+                <p class="product-price"><strong>price: 10.00 SAR</strong></p>
+            </div>
+            <img src="images/Product2.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Schesir Tuna and Chicken in Jelly Wet Food for Adult Cats, 85 grams</h5>
+            <p class="card-text">10.00 SAR</p>
+            <button class="btn btn-primary btn-block" onclick="addToCart('Schesir Tuna and Chicken in Jelly Wet Food for Adult Cats, 85 grams', 10)">Add to Cart</button>
+        </div>
+    </div>
+</div>
 
+<!-- Product 3 -->
+<div class="col-md-4" data-category="food">
+    <div class="product-card">
+        <div class="card mb-4 product">
+            <div class="product-overlay">
+                <h5 class="product-title">Applaws Home Care Plus Fish Flavor with Salmon dry food for sterilized cats</h5>
+                <p class="product-description">This cat food is rich in vital vitamins and minerals such as Vitamin A, Vitamin D3, Vitamin E, selenium, iodine, iron, copper, manganese, zinc, taurine, and Omega 3 and Omega 6 fatty acids.</p>
+                <p class="product-price"><strong>price: 202.00 SAR</strong></p>
+            </div>
+            <img src="images/Product3.jpg" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Applaws Home Care Plus Fish Flavor with Salmon dry food for sterilized cats</h5>
+            <p class="card-text">202.00 SAR</p>
+            <button class="btn btn-primary btn-block" onclick="addToCart('Applaws Home Care Plus Fish Flavor with Salmon dry food for sterilized cats', 202)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Product 4 -->
+        <div class="col-md-4" data-category="food">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Versele Laga Xo Light Mix for Curling and Budgies 750 grams</h5>
+                    <p class="product-description">-Excellent seeds and puffed grains<br>
+                        -For large parrots, curlews, and budgies: seeds<br> with light, swollen grains<br>
+                        -With 35% puffed corn, puffed wheat and pearl kernels</p>
+                    <p class="product-price"><strong>price : 34.00 SAR</strong></p>
+                </div>
+                <img src="images/Product4.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Versele Laga Xo Light Mix <br>for Curling and Budgies <br> 750 grams </h5>
+                <p class="card-text">34.00 SAR</p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Versele Laga Xo Light Mix for Curling and Budgies 750 grams', 34)">Add to Cart</button>
+            </div>
         </div>
 
-      </nav>
+        <!-- Product 5 -->
+        <div class="col-md-4" data-category="food">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Zolux Nutrimeal Premium Millet Stick Treats for Rare Birds, 110 grams</h5>
+                    <p class="product-description"> -100% natural formula and veterinarian approved<br>
+                        -No additives or added sugar<br>
+                        -Rich in yellow millet 52%<br>
+                        -4% crushed sea shell to aid the digestive system </p>
+                    <p class="product-price"><strong>price: 12.00 SAR</strong></p>
+                </div>
+                <img src="images/Product5.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Zolux Nutrimeal Premium Millet<br> Stick Treats for Rare Birds,<br> 110 grams</h5>
+                <p class="card-text">12.00 SAR </p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Zolux Nutrimeal Premium Millet Stick Treats for Rare Birds, 110 grams', 12)">Add to Cart</button>
+            </div>
+        </div>
 
-
-
+        <!-- Product 6 -->
+        <div class="col-md-4" data-category="food">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Bravery dry food for small, medium and large dogs</h5>
+                    <p class="product-description">-Rich in protein<br>
+                        - the product are manufactured according to international standards.<br>
+                        -100% natural ingredients, free of preservatives and artificial colors</p>
+                    <p class="product-price"><strong>price: 98.00 SAR</strong></p>
+                </div>
+                <img src="images/Product6.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Bravery dry food<br> for small, medium and <br>large dogs</h5>
+                <p class="card-text">98.00 SAR   </p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Bravery dry food for small, medium and large dogs', 98)">Add to Cart</button>
+            </div>
+        </div>
     </div>
-  </header>
-<!-- --------------------------------------------------------------->
-<section id="banner" class="py-3" style="background: #F9F3EC;">
-    <div class="container">
-      <div class="hero-content py-5 my-3">
-        <h2 class="display-1 mt-3 mb-0">Shop</h2>
-        <nav class="breadcrumb">
-          <a class="breadcrumb-item nav-link" href="#">Home</a>
-          <a class="breadcrumb-item nav-link" href="#">Pages</a>
-          <span class="breadcrumb-item active" aria-current="page">Shop</span>
-        </nav>
-      </div>
+</div>
+
+<!----------------------------------------------------------------------------------------------------- -->
+<!-- Product 7 -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4" data-category="clothes">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Summer clothes for small dogs, red</h5>
+                    <p class="product-description">- Different kind of clothes for hot summer for your pet<br>
+                        -Let him enjoy the summer with fashion</p>
+                    <p class="product-price"><strong>price : 35.00 SAR</strong></p>
+                </div>
+                <img src="images/Product7.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Summer clothes for small dogs, red </h5>
+                <p class="card-text">35.00 SAR</p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Summer clothes for small dogs, red', 35)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="col-md-4" data-category="clothes">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Zolux Legend winter clothing jacket for cats and small dogs, beige color</h5>
+                    <p class="product-description">- Warmth in cold weather<br>
+                        -Elegant and modern<br>
+                        -Comfortable fit<br>
+                        -Easy to use<br>
+                        -Versatile use indoors and outdoors<br>
+                        -Great gift idea<br></p>
+                    <p class="product-price"><strong>price: 100.00 SAR</strong></p>
+                </div>
+                <img src="images/Product8.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Zolux Legend winter clothing jacket , beige </h5>
+                <p class="card-text">100.00 SAR   </p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Zolux Legend winter clothing jacket for cats and small dogs, beige color', 100)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="col-md-4" data-category="clothes">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Summer clothes for small dogs, Pink</h5>
+                    <p class="product-description">- Different kind of clothes for hot summer for your pet<br>
+                        -Let him enjoy the summer with fashion</p>
+                    <p class="product-price"><strong>price : 35.00 SAR</strong></p>
+                </div>
+                <img src="images/Product9.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Summer clothes for small dogs, Pink </h5>
+                <p class="card-text">35.00 SAR</p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Summer clothes for small dogs, Pink', 35)">Add to Cart</button>
+            </div>
+        </div>
     </div>
-  </section>
+</div>
 
-  <div class="shopify-grid">
-    <div class="container py-5 my-5">
-      <div class="row flex-md-row-reverse g-md-5 mb-5">
-
-        <main class="col-md-9">
-          <div class="filter-shop d-md-flex justify-content-between align-items-center">
-            <div class="showing-product">
-              <p class="m-0">Showing 1–9 of 55 results</p>
-            </div>
-            <div class="sort-by">
-              <select class="filter-categories border-0 m-0">
-                <option value="">Default sorting</option>
-                <option value="">Name (A - Z)</option>
-                <option value="">Name (Z - A)</option>
-                <option value="">Price (Low-High)</option>
-                <option value="">Price (High-Low)</option>
-                <option value="">Rating (Highest)</option>
-                <option value="">Rating (Lowest)</option>
-                <option value="">Model (A - Z)</option>
-                <option value="">Model (Z - A)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="product-grid row ">
-            <div class="col-md-4 my-4">
-              <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-                New
-              </div> -->
-              <div class="card position-relative">
-                <a href="single-product.html"><img src="images/item7.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-product.html">
-                    <h3 class="card-title pt-4 m-0">Grey hoodie</h3>
-                  </a>
-
-                  <div class="card-text">
-                    <span class="rating secondary-font">
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      5.0</span>
-
-                    <h3 class="secondary-font text-primary">$18.00</h3>
-
-                    <div class="d-flex flex-wrap mt-3">
-                      <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                        <h5 class="text-uppercase m-0">Add to Cart</h5>
-                      </a>
-                      <a href="#" class="btn-wishlist px-4 pt-3 ">
-                        <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                      </a>
-                    </div>
-
-
-                  </div>
-
+<!-- Product 10 -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4" data-category="clothes">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Zolux Braca Hoodie, waterproof winter clothing for cats and small dogs, green color</h5>
+                    <p class="product-description">-water resistant <br>
+                                                  -Adjustable size <br>
+                                                  -Durable construction<br>
+                                                  -Easy to clean<br>
+                                                 -Versatile design<br></p>
+                    <p class="product-price"><strong>price : 150.00 SAR</strong></p>
                 </div>
-              </div>
+                <img src="images/Product10.jpg" class="card-img-top" alt="...">
             </div>
+            <div class="card-body">
+                <h5 class="card-title">Zolux Braca Hoodie, waterproof winter clothing for cats and small dogs, green color </h5>
+                <p class="card-text">150.00 SAR</p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Zolux Braca Hoodie, waterproof winter clothing for cats and small dogs, green color', 150)">Add to Cart</button>
+            </div>
+        </div>
 
-            <div class="col-md-4 my-4">
-              <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-                New
-              </div>
-              <div class="card position-relative">
-                <a href="single-product.html"><img src="images/item10.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-product.html">
-                    <h3 class="card-title pt-4 m-0">Grey hoodie</h3>
-                  </a>
-
-                  <div class="card-text">
-                    <span class="rating secondary-font">
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      5.0</span>
-
-                    <h3 class="secondary-font text-primary">$18.00</h3>
-
-                    <div class="d-flex flex-wrap mt-3">
-                      <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                        <h5 class="text-uppercase m-0">Add to Cart</h5>
-                      </a>
-                      <a href="#" class="btn-wishlist px-4 pt-3 ">
-                        <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                      </a>
-                    </div>
-
-
-                  </div>
-
+        <!-- Product 11 -->
+        <div class="col-md-4" data-category="clothes">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Zolux "Move" comfortable red collar in multiple sizes for dogs</h5>
+                    <p class="product-description"> -Adjustable and expandable collar<br>
+                                                   -Lined with neoprene, very comfortable to wear<br>
+                                                   -Waterproof and with reflective strips<br>
+                                                   -Available in four sizes to suit all types of dogs<br> </p>
+                    <p class="product-price"><strong>price: 26.00 SAR</strong></p>
                 </div>
-              </div>
+                <img src="images/Product11.jpg" class="card-img-top" alt="...">
             </div>
+            <div class="card-body">
+                <h5 class="card-title">Zolux "Move" comfortable  <br>red collar in multiple <br> sizes for dogs</h5>
+                <p class="card-text">26.00 SAR </p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Zolux Movecomfortable red collar in multiple sizes for dogs', 26)">Add to Cart</button>
+            </div>
+        </div>
 
-            <div class="col-md-4 my-4">
-              <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-                New
-              </div> -->
-              <div class="card position-relative">
-                <a href="single-product.html"><img src="images/item5.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-product.html">
-                    <h3 class="card-title pt-4 m-0">Grey hoodie</h3>
-                  </a>
-
-                  <div class="card-text">
-                    <span class="rating secondary-font">
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      5.0</span>
-
-                    <h3 class="secondary-font text-primary">$18.00</h3>
-
-                    <div class="d-flex flex-wrap mt-3">
-                      <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                        <h5 class="text-uppercase m-0">Add to Cart</h5>
-                      </a>
-                      <a href="#" class="btn-wishlist px-4 pt-3 ">
-                        <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                      </a>
-                    </div>
-
-
-                  </div>
-
+        <!-- Product 12-->
+        <div class="col-md-4" data-category="clothes">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Hermitage Handcrafted Italian Leather Dog Collar - Medium</h5>
+                    <p class="product-description">Quality, elegance and exclusive design are the hallmarks 
+                      of the Hermitage collection Inspired by the famous museum in Saint Petersburg, 
+                      Hermitage collars and leashes are handcrafted from soft quilted 100% Italian leather in Valenza</p>
+                    <p class="product-price"><strong>price: 136.00 SAR</strong></p>
                 </div>
-              </div>
+                <img src="images/Product12.jpg" class="card-img-top" alt="...">
             </div>
-
-            <div class="col-md-4 my-4">
-              <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-                Sold
-              </div>
-              <div class="card position-relative">
-                <a href="single-product.html"><img src="images/item8.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-product.html">
-                    <h3 class="card-title pt-4 m-0">Grey hoodie</h3>
-                  </a>
-
-                  <div class="card-text">
-                    <span class="rating secondary-font">
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      5.0</span>
-
-                    <h3 class="secondary-font text-primary">$18.00</h3>
-
-                    <div class="d-flex flex-wrap mt-3">
-                      <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                        <h5 class="text-uppercase m-0">Add to Cart</h5>
-                      </a>
-                      <a href="#" class="btn-wishlist px-4 pt-3 ">
-                        <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                      </a>
-                    </div>
-
-
-                  </div>
-
-                </div>
-              </div>
+            <div class="card-body">
+                <h5 class="card-title">Hermitage Handcrafted <br>Italian Leather Dog Collar<br> - Medium</h5>
+                <p class="card-text">136.00 SAR   </p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Hermitage Handcrafted Italian Leather Dog Collar - Medium', 136)">Add to Cart</button>
             </div>
-
-            <div class="col-md-4 my-4">
-              <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-                New
-              </div> -->
-              <div class="card position-relative">
-                <a href="single-product.html"><img src="images/item13.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-product.html">
-                    <h3 class="card-title pt-4 m-0">Grey hoodie</h3>
-                  </a>
-
-                  <div class="card-text">
-                    <span class="rating secondary-font">
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      5.0</span>
-
-                    <h3 class="secondary-font text-primary">$18.00</h3>
-
-                    <div class="d-flex flex-wrap mt-3">
-                      <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                        <h5 class="text-uppercase m-0">Add to Cart</h5>
-                      </a>
-                      <a href="#" class="btn-wishlist px-4 pt-3 ">
-                        <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                      </a>
-                    </div>
-
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 my-4">
-              <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-                New
-              </div> -->
-              <div class="card position-relative">
-                <a href="single-product.html"><img src="images/item14.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-product.html">
-                    <h3 class="card-title pt-4 m-0">Grey hoodie</h3>
-                  </a>
-
-                  <div class="card-text">
-                    <span class="rating secondary-font">
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      5.0</span>
-
-                    <h3 class="secondary-font text-primary">$18.00</h3>
-
-                    <div class="d-flex flex-wrap mt-3">
-                      <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                        <h5 class="text-uppercase m-0">Add to Cart</h5>
-                      </a>
-                      <a href="#" class="btn-wishlist px-4 pt-3 ">
-                        <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                      </a>
-                    </div>
-
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 my-4">
-              <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-                Sale
-              </div>
-              <div class="card position-relative">
-                <a href="single-product.html"><img src="images/item9.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-product.html">
-                    <h3 class="card-title pt-4 m-0">Grey hoodie</h3>
-                  </a>
-
-                  <div class="card-text">
-                    <span class="rating secondary-font">
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      5.0</span>
-
-                    <h3 class="secondary-font text-primary">$18.00</h3>
-
-                    <div class="d-flex flex-wrap mt-3">
-                      <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                        <h5 class="text-uppercase m-0">Add to Cart</h5>
-                      </a>
-                      <a href="#" class="btn-wishlist px-4 pt-3 ">
-                        <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                      </a>
-                    </div>
-
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 my-4">
-              <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-                New
-              </div> -->
-              <div class="card position-relative">
-                <a href="single-product.html"><img src="images/item16.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-product.html">
-                    <h3 class="card-title pt-4 m-0">Grey hoodie</h3>
-                  </a>
-
-                  <div class="card-text">
-                    <span class="rating secondary-font">
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      5.0</span>
-
-                    <h3 class="secondary-font text-primary">$18.00</h3>
-
-                    <div class="d-flex flex-wrap mt-3">
-                      <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                        <h5 class="text-uppercase m-0">Add to Cart</h5>
-                      </a>
-                      <a href="#" class="btn-wishlist px-4 pt-3 ">
-                        <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                      </a>
-                    </div>
-
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 my-4">
-              <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-                New
-              </div> -->
-              <div class="card position-relative">
-                <a href="single-product.html"><img src="images/item2.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-product.html">
-                    <h3 class="card-title pt-4 m-0">Grey hoodie</h3>
-                  </a>
-
-                  <div class="card-text">
-                    <span class="rating secondary-font">
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                      5.0</span>
-
-                    <h3 class="secondary-font text-primary">$18.00</h3>
-
-                    <div class="d-flex flex-wrap mt-3">
-                      <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                        <h5 class="text-uppercase m-0">Add to Cart</h5>
-                      </a>
-                      <a href="#" class="btn-wishlist px-4 pt-3 ">
-                        <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                      </a>
-                    </div>
-
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <!-- / product-grid -->
-
-          <nav class="navigation paging-navigation text-center mt-5" role="navigation">
-            <div class="pagination loop-pagination d-flex justify-content-center align-items-center">
-              <a href="#" class="pagination-arrow d-flex align-items-center mx-3">
-                <iconify-icon icon="ic:baseline-keyboard-arrow-left" class="pagination-arrow fs-1"></iconify-icon>
-              </a>
-              <span aria-current="page" class="page-numbers mt-2 fs-3 mx-3 current">1</span>
-              <a class="page-numbers mt-2 fs-3 mx-3" href="#">2</a>
-              <a class="page-numbers mt-2 fs-3 mx-3" href="#">3</a>
-              <a href="#" class="pagination-arrow d-flex align-items-center mx-3">
-                <iconify-icon icon="ic:baseline-keyboard-arrow-right" class="pagination-arrow fs-1"></iconify-icon>
-              </a>
-            </div>
-          </nav>
-
-        </main>
-        <aside class="col-md-3 mt-5">
-          <div class="sidebar">
-            <div class="widget-menu">
-              <div class="widget-search-bar">
-                <div class="search-bar border rounded-2 border-dark-subtle pe-3">
-                  <form id="search-form" class="text-center d-flex align-items-center" action="" method="">
-                    <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for products" />
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                      <path fill="currentColor"
-                        d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
-                    </svg>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div class="widget-product-categories pt-5">
-              <h4 class="widget-title">Categories</h4>
-              <ul class="product-categories sidebar-list list-unstyled">
-                <li class="cat-item">
-                  <a href="/collections/categories">All</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#" class="nav-link">Dogs</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#" class="nav-link">Food</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#" class="nav-link">Cats</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#" class="nav-link">Birds</a>
-                </li>
-              </ul>
-            </div>
-            <div class="widget-product-tags pt-3">
-              <h4 class="widget-title">Tags</h4>
-              <ul class="product-tags sidebar-list list-unstyled">
-                <li class="tags-item">
-                  <a href="#" class="nav-link">Pets</a>
-                </li>
-                <li class="tags-item">
-                  <a href="#" class="nav-link">Clothes</a>
-                </li>
-                <li class="tags-item">
-                  <a href="#" class="nav-link">Foods</a>
-                </li>
-                <li class="tags-item">
-                  <a href="#" class="nav-link">Toys</a>
-                </li>
-              </ul>
-            </div>
-            <div class="widget-product-brands pt-3">
-              <h4 class="widget-title">Brands</h4>
-              <ul class="product-tags sidebar-list list-unstyled">
-                <li class="tags-item">
-                  <a href="#" class="nav-link">Denim</a>
-                </li>
-                <li class="tags-item">
-                  <a href="#" class="nav-link">Puma</a>
-                </li>
-                <li class="tags-item">
-                  <a href="#" class="nav-link">Klaws</a>
-                </li>
-              </ul>
-            </div>
-            <div class="widget-price-filter pt-3">
-              <h4 class="widget-titlewidget-title">Filter By Price</h4>
-              <ul class="product-tags sidebar-list list-unstyled">
-                <li class="tags-item">
-                  <a href="#" class="nav-link">Less than $10</a>
-                </li>
-                <li class="tags-item">
-                  <a href="#" class="nav-link">$10- $20</a>
-                </li>
-                <li class="tags-item">
-                  <a href="#" class="nav-link">$20- $30</a>
-                </li>
-                <li class="tags-item">
-                  <a href="#" class="nav-link">$30- $40</a>
-                </li>
-                <li class="tags-item">
-                  <a href="#" class="nav-link">$40- $50</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </aside>
-      </div>
+        </div>
     </div>
-  </div>
+</div>
 
-  <section id="register" style="background: url('images/background-img.png') no-repeat;" class="my-5">
+
+<!----------------------------------------------------------------------------------------------------- -->
+
+
+<!-- Product 13 -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4" data-category="toy">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Zolux Chiquitos Dog Toy and Blanket</h5>
+                    <p class="product-description">-Sloth blanket<br>
+                                                   -Plush and velvety soft, made from 100% recycled materials.<br>
+                                                  -It is characterized by meeting the different needs of caregivers and dogs.<br>
+                                                   -suitable for dogs of all breeds, sizes and ages.</p>
+                    <p class="product-price"><strong>price : 100.00 SAR</strong></p>
+                </div>
+                <img src="images/Product13.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Zolux Chiquitos Dog Toy <br>and Blanket</h5>
+                <p class="card-text">100.00 SAR</p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Zolux Chiquitos Dog Toy and Blanket', 100)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 14 -->
+        <div class="col-md-4" data-category="toy">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Zolux 15 cm bone-shaped rubber football toy for dogs</h5>
+                    <p class="product-description">The main function of toys is to stimulate mental
+                       and emotional stimulation to the dog and allow him to chew.
+                        Playing with this type of object can also be an important 
+                        factor in modifying unwanted behaviors.</p>
+                    <p class="product-price"><strong>price: 15.00 SAR</strong></p>
+                </div>
+                <img src="images/Product14.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Zolux 15 cm bone-shaped <br>rubber football toy for dogs </h5>
+                <p class="card-text">15.00 SAR   </p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Zolux 15 cm bone-shaped rubber football toy for dogs', 15)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 15 -->
+        <div class="col-md-4" data-category="toy">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">GoDog Green Dragon Dog Toy</h5>
+                    <p class="product-description">It is every dog's favorite toy.
+                       These toys are made of fur and are padded and contain 
+                       technology that can withstand chewing and can also withstand heavy play. Minimal padding gives these toys a fun "fluffy" feel that dogs love</p>
+                    <p class="product-price"><strong>price : 60.00 SAR</strong></p>
+                </div>
+                <img src="images/Product15.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">GoDog Green Dragon<br> Dog Toy </h5>
+                <p class="card-text">60.00 SAR</p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('GoDog Green Dragon Dog Toy', 60)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Product 16 -->
+<div class="container mt-4">
+
+    <div class="row">
+        <div class="col-md-4" data-category="toy">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Zolux Chiquitos Llama toy and pillow for dogs</h5>
+                    <p class="product-description">A pillow in the shape of a mother animal
+                                           Plush and velvety soft, made from 100% recycled materials.
+                                          It is characterized by meeting the different needs of caregivers and dogs.
+                                         Chiquitos is suitable for dogs of all breeds, sizes and ages.</p>
+                    <p class="product-price"><strong>price : 40.00 SAR</strong></p>
+                </div>
+                <img src="images/Product16.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Zolux Chiquitos Llama toy and pillow for dogs </h5>
+                <p class="card-text">40.00 SAR</p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Zolux Chiquitos Llama toy and pillow for dogs', 40)">Add to Cart</button>
+            </div>
+        </div>
+
+
+        
+        <!-- Product 17 -->
+        <div class="col-md-4" data-category="toy">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Zolux Titan rubber toy with rope, yellow, for dogs</h5>
+                    <p class="product-description"> -Highly resistant toy made of natural rubber<br>
+                                                    -This material is not only durable but is also friendly to your dog's teeth<br>
+                                                     -The specific shape allows you to use it as a food dispenser while playing with your dog </p>
+                    <p class="product-price"><strong>price: 30.00 SAR</strong></p>
+                </div>
+                <img src="images/Product17.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Zolux Titan rubber toy with rope, yellow, for dogs</h5>
+                <p class="card-text">30.00 SAR </p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Zolux Titan rubber toy with rope, yellow, for dogs', 30)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 18-->
+        <div class="col-md-4" data-category="toy">
+            <div class="card mb-4 product">
+                <div class="product-overlay">
+                    <h5 class="product-title">Zolux Koala Teether Stuffed Toy for Puppies</h5>
+                    <p class="product-description">
+                    -A great way to keep your dog entertained and active.<br>
+                    -Easy to handle.<br>
+                    -This toy is perfect for dogs who love to play and chew.<br>
+                    -Made of durable materials that can withstand even the toughest chewers.<br>
+                   </p>
+                    <p class="product-price"><strong>price: 15.00 SAR</strong></p>
+                </div>
+                <img src="images/Product18.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Zolux Koala Teether Stuffed Toy for Puppies</h5>
+                <p class="card-text">15.00 SAR   </p>
+                <button class="btn btn-primary btn-block" onclick="addToCart('Zolux Koala Teether Stuffed Toy for Puppies', 15)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------------------------------- -->
+
+    <!-- Modal -->
+    <form id="checkoutForm" method="POST" action="insert.php">
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cartItemList" class="list-group">
+                        
+                    </ul>
+                </div>
+                <div class="modal-footer">
+               
+                    <input type="hidden" id="totalPriceInput" name="totalPrice">
+                    <input type="submit" id="checkoutButton" name="checkoutButton" class="btn btn-primary" value="Checkout">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+</main>
+
+
+
+
+
+<section id="register" style="background: url('images/shop2.png') no-repeat; background-size: cover; height: 540px;" class="my-5">
     <div class="container my-5 ">
       <div class="row my-5 py-5">
         <div class="offset-md-3 col-md-6 my-5 ">
-          <h2 class="display-3 fw-normal text-center">Get 20% Off on <span class="text-primary">first Purchase</span>
-          </h2>
-          <form>
-            <div class="mb-3">
-              <input type="email" class="form-control form-control-lg" name="email" id="email"
-                placeholder="Enter Your Email Address">
-            </div>
-            <div class="mb-3">
-              <input type="password" class="form-control form-control-lg" name="email" id="password1"
-                placeholder="Create Password">
-            </div>
-            <div class="mb-3">
-              <input type="password" class="form-control form-control-lg" name="email" id="password2"
-                placeholder="Repeat Password">
-            </div>
-
-            <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-dark btn-lg rounded-1">Register it now</button>
-            </div>
-          </form>
+            <h2 class="display-3 fw-normal text-start" style="margin-left: -170px;"> <br> Shop in our world full <span class="text-primary"><br>of beautiful surprises <br>for your pet</span> </h2>
         </div>
       </div>
     </div>
-  </section>
+</section>
+
 
   <section id="service" class="mt-5 pt-2">
     <div class="container py-5 my-5">
@@ -885,9 +850,9 @@
             <div>
               <iconify-icon class="service-icon text-primary" icon="la:shopping-cart"></iconify-icon>
             </div>
-            <h3 class="card-title py-2 m-0">Free Delivery</h3>
+            <h3 class="card-title py-2 m-0">Convenient shopping</h3>
             <div class="card-text">
-              <p class="blog-paragraph fs-6">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+              <p class="blog-paragraph fs-6">Shop hassle-free, anytime, anywhere.</p>
             </div>
           </div>
         </div>
@@ -896,9 +861,9 @@
             <div>
               <iconify-icon class="service-icon text-primary" icon="la:user-check"></iconify-icon>
             </div>
-            <h3 class="card-title py-2 m-0">100% secure payment</h3>
+            <h3 class="card-title py-2 m-0">Complete reliability</h3>
             <div class="card-text">
-              <p class="blog-paragraph fs-6">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+              <p class="blog-paragraph fs-6">Trust in every purchase, every time.</p>
             </div>
           </div>
         </div>
@@ -907,9 +872,9 @@
             <div>
               <iconify-icon class="service-icon text-primary" icon="la:tag"></iconify-icon>
             </div>
-            <h3 class="card-title py-2 m-0">Daily Offer</h3>
+            <h3 class="card-title py-2 m-0">Special prices</h3>
             <div class="card-text">
-              <p class="blog-paragraph fs-6">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+              <p class="blog-paragraph fs-6">Discover exclusive deals just for you.</p>
             </div>
           </div>
         </div>
@@ -918,9 +883,9 @@
             <div>
               <iconify-icon class="service-icon text-primary" icon="la:award"></iconify-icon>
             </div>
-            <h3 class="card-title py-2 m-0">Quality guarantee</h3>
+            <h3 class="card-title py-2 m-0">Quality Guarantee</h3>
             <div class="card-text">
-              <p class="blog-paragraph fs-6">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+              <p class="blog-paragraph fs-6">Assured quality, satisfaction guaranteed.</p>
             </div>
           </div>
         </div>
@@ -929,70 +894,57 @@
     </div>
   </section>
 
-  <section id="insta" class="my-3">
+<!-- --------------------------------------------------------------->
+<!-- --------------------------------------------------------------->
+  
+
+
+<section id="insta" class="my-5">
     <div class="row g-0 py-5">
       <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
         <a href="#">
           <img src="images/insta1.jpg" alt="insta-img" class="img-fluid rounded-3">
         </a>
       </div>
       <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
         <a href="#">
           <img src="images/insta2.jpg" alt="insta-img" class="img-fluid rounded-3">
         </a>
       </div>
       <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
         <a href="#">
           <img src="images/insta3.jpg" alt="insta-img" class="img-fluid rounded-3">
         </a>
       </div>
       <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
         <a href="#">
           <img src="images/insta4.jpg" alt="insta-img" class="img-fluid rounded-3">
         </a>
       </div>
       <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
         <a href="#">
           <img src="images/insta5.jpg" alt="insta-img" class="img-fluid rounded-3">
         </a>
       </div>
       <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
         <a href="#">
           <img src="images/insta6.jpg" alt="insta-img" class="img-fluid rounded-3">
         </a>
       </div>
     </div>
   </section>
-<!-- --------------------------------------------------------------->
-<!-- --------------------------------------------------------------->
+
+ 
+
   
 
   <footer id="footer" class="my-5">
     <div class="container py-5 my-5">
       <div class="row">
-
         <div class="col-md-3">
           <div class="footer-menu">
-            <img src="images/logo.png" alt="logo">
-            <p class="blog-paragraph fs-6 mt-3">Subscribe to our newsletter to get updates about our grand offers.</p>
+            <img src="images/joyfulPawsLogo.png" alt="logo" class="img-fluid">
+            <p class="blog-paragraph fs-6 mt-3">Subscribe to our newsletterto get new updates.</p>
             <div class="social-links">
               <ul class="d-flex list-unstyled gap-2">
                 <li class="social">
@@ -1020,7 +972,6 @@
                     <iconify-icon class="social-icon" icon="ri:youtube-fill"></iconify-icon>
                   </a>
                 </li>
-
               </ul>
             </div>
           </div>
@@ -1030,55 +981,55 @@
             <h3>Quick Links</h3>
             <ul class="menu-list list-unstyled">
               <li class="menu-item">
-                <a href="#" class="nav-link">Home</a>
+                <a href="index.php" class="nav-link">Home</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="nav-link">About us</a>
+                <a href="index.php#register" class="nav-link">About us</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="nav-link">Offer </a>
+                <a href="index.php#categories" class="nav-link">Services</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="nav-link">Services</a>
+                <a href="customerExperiences.php" class="nav-link">Customer experiences</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="nav-link">Conatct Us</a>
+                <a href="#" class="nav-link">JOIN US</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="col-md-3">
           <div class="footer-menu">
-            <h3>Help Center</h5>
-              <ul class="menu-list list-unstyled">
-                <li class="menu-item">
-                  <a href="#" class="nav-link">FAQs</a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="nav-link">Payment</a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="nav-link">Returns & Refunds</a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="nav-link">Checkout</a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="nav-link">Delivery Information</a>
-                </li>
-              </ul>
+            <h3>Services</h3>
+            <ul class="menu-list list-unstyled">
+              <li class="menu-item">
+                <a href="#" class="nav-link">Pet spa</a>
+              </li>
+              <li class="menu-item">
+                <a href="adoptionform.php" class="nav-link">Adoption</a>
+              </li>
+              <li class="menu-item">
+                <a href="SuppliesShop.php" class="nav-link">Supplies Shop</a>
+              </li>
+              <li class="menu-item">
+                <a href="medical-services.php" class="nav-link">Medical services</a>
+              </li>
+              <li class="menu-item">
+                <a href="Emergency.php" class="nav-link">Emergency care</a>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="col-md-3">
-          <div>
-            <h3>Our Newsletter</h3>
-            <p class="blog-paragraph fs-6">Subscribe to our newsletter to get updates about our grand offers.</p>
-            <div class="search-bar border rounded-pill border-dark-subtle px-2">
-              <form class="text-center d-flex align-items-center" action="" method="">
-                <input type="text" class="form-control border-0 bg-transparent" placeholder="Enter your email here" />
-                <iconify-icon class="send-icon" icon="tabler:location-filled"></iconify-icon>
-              </form>
-            </div>
+        <h3>Contacts</h3>
+          <div class="support-box d-none d-xl-block">
+            <span class="fs-6 primary-font text-muted">Phone</span>
+            <h6 class="mb-0">+966 0177440000</h6>
+          </div>
+          <br>
+          <div class="support-box d-none d-xl-block">
+            <span class="fs-6 primary-font text-muted">Email</span>
+            <h6 class="mb-0">joyfulPaws@gmail.com</h6>
           </div>
         </div>
 
@@ -1102,6 +1053,177 @@
   </div>
 
 <!-- ---------------------------------------------------------------------------------->
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Script -->
+   
+ <script>
+    let cartItems = [];
+
+
+function addToCart(productName, price) {
+    // Check if the product is already in the cart
+    let existingItem = cartItems.find(item => item.name === productName);
+
+    if (existingItem) {
+        // If the product is already in the cart, increase its quantity
+        existingItem.quantity++;
+    } else {
+        // If the product is not in the cart, add it with quantity 1
+        cartItems.push({ name: productName, price: price, quantity: 1 });
+
+   
+
+    }
+
+    updateCartBadge();
+    updateExternalCartBadge();
+}
+
+function removeCartItem(index) {
+    cartItems.splice(index, 1);
+
+    updateCartBadge(); 
+    showCartItems();
+}
+
+function showCartItems() {
+    let cartItemList = document.getElementById("cartItemList");
+    cartItemList.innerHTML = "";
+
+    let totalPrice = 0; 
+    cartItems.forEach((item, index) => {
+        let li = document.createElement("li");
+        li.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+
+        // Display product name, quantity, and total price for each item
+        let itemTotal = item.price * item.quantity;
+        li.innerHTML = `${item.name} <br>- Quantity: ${item.quantity} <br>- Total: ${itemTotal} SAR`;
+
+
+        // Create delete button for each item
+        let deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "&#10006;";
+        deleteButton.classList.add("btn", "btn-danger");
+        deleteButton.addEventListener("click", () => {
+            removeCartItem(index); 
+        });
+        li.appendChild(deleteButton);
+
+        cartItemList.appendChild(li);
+
+        totalPrice += itemTotal; 
+    });
+
+    
+
+    // Add total price to the bottom of the cart
+    let totalItem = document.createElement("li");
+    totalItem.classList.add("list-group-item", "fw-bold", "text-end");
+    totalItem.textContent = `Total Price: ${totalPrice} SAR `;
+    cartItemList.appendChild(totalItem);
+    document.getElementById("totalPriceInput").value = totalPrice;
+    $('#cartModal').modal('show');
+
+}
+
+function updateCartBadge() {
+    let totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+    let cartBadge = document.getElementById("cart-badge");
+    cartBadge.textContent = totalQuantity;
+}
+
+function updateExternalCartBadge() {
+    // Calculate the total number of items in the cart
+    let totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+    // Update the external cart badge
+    let externalCartBadge = document.getElementById("external-cart-badge");
+    if (externalCartBadge) {
+        externalCartBadge.textContent = totalItems;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const categoryLinks = document.querySelectorAll('.btn-group a');
+
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); 
+
+            const selectedCategory = this.getAttribute("data-category");
+            const products = document.querySelectorAll(".col-md-4[data-category]");
+
+            products.forEach(product => {
+                const category = product.getAttribute("data-category");
+
+                if (selectedCategory === "all" || category === selectedCategory) {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        });
+    });
+});
+
+
+
+
+document.querySelectorAll('.product').forEach(item => {
+    item.addEventListener('mousemove', function(e) {
+        const info = this.querySelector('.product-info');
+        const xOffset = e.clientX - this.offsetLeft + 10;
+        const yOffset = e.clientY - this.offsetTop + 10;
+
+        info.style.left = xOffset + 'px';
+        info.style.top = yOffset + 'px';
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("checkoutButton").addEventListener("click", function() {
+        let totalPrice = calculateTotalPrice(); 
+        if (totalPrice > 0) {
+            saveTotalPrice(totalPrice); 
+        } else {
+            alert("Your cart is empty!"); 
+            window.location.href = "SuppliesShop.php";
+        }
+    });
+});
+
+function calculateTotalPrice() {
+    let totalPrice = 0;
+    cartItems.forEach(item => {
+        totalPrice += item.price * item.quantity;
+    });
+    return totalPrice;
+}
+
+function saveTotalPrice(totalPrice) {
+  let serializedProductNames = JSON.stringify(productNames);
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "insert.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  
+
+let data = "totalPrice=" + totalPrice;
+data += "&productNames=" + encodeURIComponent(serializedProductNames);
+
+
+    xhr.send(data);
+}
+
+
+
+    </script>
+
+
 
   <script src="js/jquery-1.11.0.min.js"></script>
   <script src="js/swiper.js"></script>
@@ -1109,6 +1231,7 @@
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
   <script src="js/iconify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>
