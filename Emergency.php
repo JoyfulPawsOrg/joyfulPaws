@@ -352,7 +352,6 @@ top: 13px;
 
   <section class="h-100 " style="background-image: url(images/backgroundEm.jpg);">
     <div class="container py-5 h-100">
-
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col">
           <div class="card card-registration my-4">
@@ -383,17 +382,11 @@ top: 13px;
                   </div>
                 <!--------------ROW 2------------------------------->
                   <div class="row">
-                                       
-
-                  
                     <fieldset >
-
                       <legend> Address </legend>
-
                       <div class="row">
                         <div class="col-md-6 mb-4">
                           <div data-mdb-input-init class="form-outline">
-
                             <label for="inputAddress" class="form-label">Address*: </label>
                             <input style="letter-spacing:2px;font-family:'Font Awesome 5 Free'; font-weight:501;" type="text"  name="iAddress" placeholder=" &#xf3c5; street numbe, name">
                           </div>
@@ -404,10 +397,7 @@ top: 13px;
                             <input style="letter-spacing:2px;font-family:'Font Awesome 5 Free'; font-weight:501;" type="text"   name="City" placeholder=" &#xf64f; name the city">
                           </div>
                         </div>
-                      </div>
-
-                     
-                     
+                      </div>                                        
                         <div class="col-md-8">
                         <label for="inputState" class="form-label">Region*:</label>
                         <br>
@@ -425,11 +415,9 @@ top: 13px;
                           <option>Najran</option>
                           <option>Al Bahah</option>
                           <option>Al Jawf</option>
-                          <option>Al-Qassim</option>
-    
+                          <option>Al-Qassim</option>  
                         </select>
                         </fieldset>
-
                   </div>
                   <!--------------- ROW 3-------------------------->
                   <div class="row">
@@ -458,14 +446,13 @@ top: 13px;
                           <label for="photo">Pet Photo*:</label>
                           <i class="fa-regular fa-image">  </i>
                           <input    type="file" id="photo" name="photo" class=" mt-2 mb-4 ps-3"  >
-                                                </div>
-                      </div>                  
+                         </div>
+                      </div>     
+                      
+                      
+                      
                     </fieldset>
-                    
-
-
                       <legend> Last Seen: </legend>
-
                       <div class="row">
                         <div class="col-md-6 mb-4">
                           <div data-mdb-input-init class="form-outline">
@@ -657,6 +644,7 @@ top: 13px;
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
   <script src="js/iconify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>

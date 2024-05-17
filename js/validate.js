@@ -35,7 +35,6 @@ function validatePhone(phone) {
 }
 
 
-
 function validateAddress(address,city,state) {
     var iAddress = address;
     var City = city;
