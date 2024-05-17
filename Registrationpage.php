@@ -15,7 +15,7 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
 </head>
-
+<link rel="icon" href="images/Paws.png">
 <link rel="stylesheet" href="css/swiper.css" />
 <link rel="stylesheet" href="css/bootstrap.css" />
       <!-- bootstrap css -->
@@ -58,7 +58,7 @@
                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                   <div class="full">
                      <div class="center-desk">
-                        <a href="#"><img src="images/logo.png" alt="#" /></a>
+                        <a href="#"><img src="images/joyfulPawsLogo.png" alt="#" /></a>
                      </div>
                   </div>
                </div>

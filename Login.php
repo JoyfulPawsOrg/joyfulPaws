@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Login Form</title>
+<title>Joyful Paws |Login Form</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
   <meta name="description" content="">
 </head>
 <head>
+<link rel="icon" href="images/Paws.png">
 <link rel="stylesheet" href="css/swiper.css" />
 <link rel="stylesheet" href="css/bootstrap.css" />
 
@@ -267,7 +268,7 @@ input[type=checkbox]:checked + label > span:before {
 
     <div class="main" >
 
-       <!-- Signup Form -->
+       <!-- Sign in Form -->
 <section class="signup" style="font-family:monospace;">
     <div class="container">
         <div class="signin-content">
@@ -279,17 +280,13 @@ input[type=checkbox]:checked + label > span:before {
                         <label for="email"><i class="zmdi zmdi-email"></i></label>
                         <input type="email" id="email"  placeholder="Your Email"  name ='email' required>
                     </div>
-<br>
-
-            
+                    <br>
                     <!-- Fourth row: Password -->
                     <div class="form-group">
                         <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                         <input type="password" name="password" id="pass" placeholder="Password" required>
                     </div>
                     <br>
-                      
-                
                     <div class="form-group form-button">
                        <input type="submit" name="Login" id="Login" class="form-submit" value="Sign in"/>
                     </div>
