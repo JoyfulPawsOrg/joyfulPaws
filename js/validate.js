@@ -60,7 +60,7 @@ function validateAddress(address,city,state) {
         return false;
     }
     if (!saudiAddressRegex.test(iAddress + ", " + City + ", Saudi Arabia")) {
-        alert("Please enter a valid address in Saudi Arabia format: [Number] [Street Name], [City], Saudi Arabia");
+        alert("Please enter a valid address in Saudi Arabia format:\n Address: Number Street Name\n City : name of the city\n");
         return false;
     }
     if (!saudiRegions.includes(inputState)) {

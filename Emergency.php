@@ -388,7 +388,7 @@ top: 13px;
                         <div class="col-md-6 mb-4">
                           <div data-mdb-input-init class="form-outline">
                             <label for="inputAddress" class="form-label">Address*: </label>
-                            <input style="letter-spacing:2px;font-family:'Font Awesome 5 Free'; font-weight:501;" type="text"  name="iAddress" placeholder=" &#xf3c5; street numbe, name">
+                            <input style="letter-spacing:2px;font-family:'Font Awesome 5 Free'; font-weight:501;" type="text"  name="iAddress" placeholder=" &#xf3c5; street number name">
                           </div>
                         </div>
                         <div class="col-md-6 mb-4">

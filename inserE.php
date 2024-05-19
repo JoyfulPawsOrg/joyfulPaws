@@ -22,6 +22,7 @@ if(isset($_POST['submit'])){
     ,'$PETTYPE',' $PETSTATUS','$IMAGE_UP',' $INPUTADDRESS','$INPUTCITY','$INPUTSTATE',' $DATEE','$TIMEE')";
     
     mysqli_query($con,$INSERET);
+    
     if(move_uploaded_file($IMAGE_LOCATION,'images/'.$IMAGE_NAME)){
         echo "<script>alert('Request has been received successfully! We will deal with it as soon as possible. thank you for your kindness!!')</script>";
         require_once 'sms.php';
