@@ -41,7 +41,7 @@ function validateAddress(address,city,state) {
     var inputState = state;
     
     // Regular expression for validating Saudi Arabian address format
-    var saudiAddressRegex = /^[0-9]+ .*, .*, Saudi Arabia$/;
+    var saudiAddressRegex = /^[0-9]+ .*$/;
     
     // Array of Saudi Arabia regions
     var saudiRegions = ["Riyadh", "Makkah", "Madinah", "Eastern Province", "Asir", "Tabuk", "Hail", "Northern Borders", "Jizan", "Najran", "Al Bahah", "Al Jawf", "Al-Qassim"];
@@ -59,8 +59,8 @@ function validateAddress(address,city,state) {
         alert("State must be selected");
         return false;
     }
-    if (!saudiAddressRegex.test(iAddress + ", " + City + ", Saudi Arabia")) {
-        alert("Please enter a valid address in Saudi Arabia format:\n Address: Number Street Name\n City : name of the city\n");
+    if (!saudiAddressRegex.test(iAddress)) {
+        alert("Please enter a valid address in Saudi Arabia format:\n Address: Number Street Name");
         return false;
     }
     if (!saudiRegions.includes(inputState)) {
