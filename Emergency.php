@@ -289,7 +289,7 @@ top: 13px;
                   aria-expanded="false">Services</a>
                 <ul class="dropdown-menu" aria-labelledby="pages">
                   <li><a href="#" class="dropdown-item">Pet spa</a></li>
-                  <li><a href="adoptionform.php" class="dropdown-item">Adoption</a></li>
+                  <li><a href="adoption.php" class="dropdown-item">Adoption</a></li>
                   <li><a href="medical-services.php" class="dropdown-item">Medical services</a></li>
                   <li><a href="Emergency.php" class="dropdown-item">Emergency care</a></li>
                 </ul>

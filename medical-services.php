@@ -209,7 +209,7 @@
                   aria-expanded="false">Services</a>
                 <ul class="dropdown-menu" aria-labelledby="pages">
                   <li><a href="#" class="dropdown-item">Pet spa</a></li>
-                  <li><a href="adoptionform.php" class="dropdown-item">Adoption</a></li>
+                  <li><a href="adoption.php" class="dropdown-item">Adoption</a></li>
                   <li><a href="medical-services.php" class="dropdown-item">Medical services</a></li>
                   <li><a href="Emergency.php" class="dropdown-item">Emergency care</a></li>
                 </ul>
@@ -530,6 +530,7 @@
 <script src="js/plugins.js"></script>
 <script src="js/script.js"></script>
 <script src="js/iconify.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>
