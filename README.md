@@ -11,7 +11,7 @@ At joyful Paws, we're dedicated to creating a community that celebrates the love
 ## Project Documentation
 
 ### - Demo Video :
-You can find the demo video [here](./demo video).
+You can find the demo video [here](./demo%20video).
 
 ### - Screenshots :
 Screenshots of each page are available in the [screenshots](./screenshots) folder.
