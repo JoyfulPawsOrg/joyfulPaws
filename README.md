@@ -19,7 +19,7 @@ Screenshots of each page are available in the [screenshots](./screenshots) folde
 ### - Report :
 The report containing all UML diagrams is available in the [report](./report) folder.
 
-### Work team :
+## Work team :
 * Manar Al-mashi | 443008492
 * Lamis Mohammed | 443307788
 * Murooj Al-Zahrani | 443008435
